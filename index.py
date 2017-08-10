@@ -25,14 +25,15 @@ def process():
         if len(request.form[i]) < 1:
             flash(i + " field cannot be blank!", "error")
 
-    if NAME_REGEX.match(first_val) or NAME_REGEX.match(last_val):
-        flash("Your name cannot contain any numbers", "error")
+    if NAME_REGEX.search(first_val) or NAME_REGEX.search(last_val):
+        flash("Your name cannot contain any numbers", 'error')
     if len(password_val) < 8 or len(confirm_val) < 8:
         flash("Password should be more than 8 characters long.", "error")
     if not EMAIL_REGEX.match(email_val):
         flash("Invalid Email Address!", "email")
     if not PASS_REGEX.match(password_val):
-        flash("Password must have at least 1 uppercase letter and 1 numeric value.", "email")
+        print session
+        flash("Password must have at least 1 uppercase letter and 1 numeric value.", 'email')
     if password_val != confirm_val:
         flash("Your passwords didn't match. Please try again.", "email")
     

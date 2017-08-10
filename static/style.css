@@ -35,6 +35,6 @@ li.error {
 li.email {
     color: blue;
 }
-li.success {
+li.success p {
     color: green;
 }
