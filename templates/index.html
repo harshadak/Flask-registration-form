@@ -9,14 +9,7 @@
 </head>
 <body>
     <h1>Please register with us!</h1>
-
-    {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            {% for message in messages %}
-                <p>{{ message }}</p>
-            {% endfor %}
-        {% endif %}
-    {% endwith %}
+    
     <form action="/process" method="post">
         <label>Email:</label>
         <input type="email" name="email_key" value="{{ email_val }}">
@@ -30,5 +23,15 @@
         <input type="text" name="confirm_key" value="{{ confirm_val }}">
         <button type="submit">Submit Form</button>
     </form>
+
+    {% with messages = get_flashed_messages(with_categories = true) %}
+        {% if messages %}
+            <ul class=flashes>
+                {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
 </body>
 </html>

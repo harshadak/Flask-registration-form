@@ -26,9 +26,15 @@ button {
     padding: 8px;
     font-size: 15px;
 }
-/* div.result {
-    margin: 0 auto;
-} */
-/* h4, p {
-    display: inline-block;
-} */
+
+/* Flash classes */
+
+li.error {
+    color: red;
+}
+li.email {
+    color: blue;
+}
+li.success {
+    color: green;
+}
